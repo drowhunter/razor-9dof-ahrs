@@ -149,8 +149,14 @@ void razor_destroy(RazorHandle handle)
 
 const char* razor_get_last_error(void)
 {
-  /* The string is owned by the library; the caller must not free it. */
-  return s_last_error.c_str();
+  /* Copy the error into a stable static buffer under the lock so that the
+   * returned pointer remains valid until the next call to this function.
+   * The caller must not free the returned pointer.                         */
+  static std::string s_error_buffer;
+  pthread_mutex_lock(&s_error_mutex);
+  s_error_buffer = s_last_error;
+  pthread_mutex_unlock(&s_error_mutex);
+  return s_error_buffer.c_str();
 }
 
 } /* extern "C" */

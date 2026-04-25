@@ -111,7 +111,9 @@ namespace RazorAHRS
         private readonly NativeErrorCallback _nativeErrorCallback;
 
         private IntPtr _handle;
-        private bool   _disposed;
+        // volatile ensures the background-thread callbacks see the most recent
+        // value written by Dispose() on the calling thread.
+        private volatile bool _disposed;
 
         // ------------------------------------------------------------------ //
         //  Public API
