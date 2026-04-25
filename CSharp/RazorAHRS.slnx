@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Example/Example.csproj" />
+  <Project Path="RazorAHRS/RazorAHRS.csproj" />
+</Solution>
