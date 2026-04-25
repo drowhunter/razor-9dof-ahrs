@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>RazorAHRS</RootNamespace>
+    <AssemblyName>RazorAHRS</AssemblyName>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.4.2</Version>
+    <Description>C# wrapper around the Razor AHRS native C++ library for the Sparkfun 9DOF Razor IMU.</Description>
+  </PropertyGroup>
+
+</Project>
